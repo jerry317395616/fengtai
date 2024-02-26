@@ -227,3 +227,12 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# apps/my_custom_app/my_custom_app/hooks.py
+
+from frappe import _
+
+def get_website_routes(context):
+    routes = [
+        {"from_route": "/my_custom_doctype/<docname>", "to_route": "get_custom_doctype_page"},
+    ]
+    return routes
