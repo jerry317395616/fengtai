@@ -103,7 +103,7 @@ frappe.pages['hello'].on_page_load = function (wrapper) {
         var $headRow = $('<tr>');
         $headRow.append('<th scope="col">#</th>');
         $headRow.append('<th scope="col">名称</th>');
-        $headRow.append('<th scope="col">物料组</th>');
+        $headRow.append('<th scope="col">分类</th>');
         $headRow.append('<th scope="col">仓库</th>');
         $headRow.append('<th scope="col">实际剩余</th>');
         $thead.append($headRow);
