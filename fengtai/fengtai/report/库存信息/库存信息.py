@@ -22,7 +22,7 @@ def execute(filters=None):
 	      SELECT item.item_name, bin.actual_qty, bin.warehouse, item.description,item.brand
 	      FROM `tabBin` AS bin
 	      LEFT JOIN `tabItem` AS item ON bin.item_code = item.name
-	      WHERE 1=1 {conditions}
+	      WHERE 1=1 {conditions} order by bin.modified desc
 	  """.format(conditions=get_conditions(filters)), as_dict=1)
 	return columns, data
 
