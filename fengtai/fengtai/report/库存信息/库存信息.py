@@ -7,7 +7,7 @@ import frappe
 def execute(filters=None):
 	columns, data = [], []
 	columns = [
-		{"label": "名称", "fieldname": "item_code","width":"200"},
+		{"label": "名称", "fieldname": "item_name","width":"200"},
 		{"label": "数量", "fieldname": "actual_qty","width":"100"},
 		{"label": "仓库", "fieldname": "warehouse","width":"200"},
 		{"label": "描述", "fieldname": "description", "width": "500"},
@@ -19,7 +19,7 @@ def execute(filters=None):
 	# 						 fields=["item_code", "actual_qty","warehouse"])
 	# 查询 Bin 表同时连接 Item 表以获取物料信息的其他字段
 	data = frappe.db.sql("""
-	      SELECT bin.item_code, bin.actual_qty, bin.warehouse, item.description,item.brand
+	      SELECT bin.item_name, bin.actual_qty, bin.warehouse, item.description,item.brand
 	      FROM `tabBin` AS bin
 	      LEFT JOIN `tabItem` AS item ON bin.item_code = item.name
 	      WHERE 1=1 {conditions}
