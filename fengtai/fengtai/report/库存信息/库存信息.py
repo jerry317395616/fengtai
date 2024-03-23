@@ -19,7 +19,7 @@ def execute(filters=None):
 	# 						 fields=["item_code", "actual_qty","warehouse"])
 	# 查询 Bin 表同时连接 Item 表以获取物料信息的其他字段
 	data = frappe.db.sql("""
-	      SELECT bin.item_name, bin.actual_qty, bin.warehouse, item.description,item.brand
+	      SELECT item.item_name, bin.actual_qty, bin.warehouse, item.description,item.brand
 	      FROM `tabBin` AS bin
 	      LEFT JOIN `tabItem` AS item ON bin.item_code = item.name
 	      WHERE 1=1 {conditions}
