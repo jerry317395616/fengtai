@@ -3,7 +3,20 @@ frappe.pages['hello'].on_page_load = function (wrapper) {
         parent: wrapper,
         title: '库存信息',
         single_column: true
+
     });
+	page.set_secondary_action("Refresh", () => page.capacity_dashboard.refresh(), "refresh");
+	page.start = 0;
+	page.item_field = page.add_field({
+		fieldname: "item_code",
+		label: __("Item"),
+		fieldtype: "Link",
+		options: "Item",
+		change: function () {
+			page.capacity_dashboard.start = 0;
+			page.capacity_dashboard.refresh();
+		},
+	});
 
     // 添加一个容器用于显示Doctype记录
     frappe.require('item-dashboard.bundle.js', function () {
