@@ -35,11 +35,11 @@ frappe.pages['库存详情'].on_page_load = function (wrapper) {
 		// 创建一个树列表视图实例
 		var tree = new frappe.ui.Tree({
 			parent: tree_container,
-			label: "西安丰泰机械有限公司",
+			label: "西安市丰泰机械有限公司",
 			method: 'erpnext.stock.doctype.warehouse.warehouse.get_children',
 			args: {
 				doctype: 'Warehouse',
-				company: '西安丰泰机械有限公司',
+				company: '西安市丰泰机械有限公司',
 				include_disabled: false,
 				is_root: true
 			},
