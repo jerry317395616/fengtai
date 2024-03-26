@@ -39,7 +39,7 @@ frappe.pages['库存详情'].on_page_load = function (wrapper) {
 			method: 'erpnext.stock.doctype.warehouse.warehouse.get_children',
 			args: {
 				doctype: 'Warehouse',
-				parent: '西安丰泰机械有限公司',
+				parent: '',
 				company: '西安丰泰机械有限公司',
 				include_disabled: false,
 				is_root: true
